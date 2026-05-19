@@ -43,9 +43,9 @@ export function ScrollyCanvas() {
   const opacityB = useTransform(scrollYProgress, [0.15, 0.2, 0.35, 0.4], [0, 1, 1, 0]);
   const xB = useTransform(scrollYProgress, [0.15, 0.4], [50, -50]);
 
-
-
-  // Section D (70% - 100%)
+  // Section C (40% - 70%)
+  const opacityC = useTransform(scrollYProgress, [0.4, 0.45, 0.65, 0.7], [0, 1, 1, 0]);
+  const xC = useTransform(scrollYProgress, [0.4, 0.7], [-50, 50]);  // Section D (70% - 100%)
   const opacityD = useTransform(scrollYProgress, [0.7, 0.75, 1, 1], [0, 1, 1, 1]);
   const yD = useTransform(scrollYProgress, [0.7, 0.8], [50, 0]);
 
@@ -71,63 +71,78 @@ export function ScrollyCanvas() {
         {/* Dark Gradient Overlay for better text readability */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/30 to-black/80" />
 
-        {/* Content Overlays */}
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-6">
-          
-          {/* Section A */}
-          <motion.div 
-            style={{ opacity: opacityA, y: yA }}
-            className="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-wide mb-6 font-syne text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
-              {t('hero.title1')}
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-100 max-w-2xl font-space tracking-wide drop-shadow-lg">
-              {t('hero.subtitle1')}
-            </p>
+        {/* Content Overlays - Only render after hydration/loading to fix Framer Motion sticky bugs */}
+        {loaded && (
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-6">
             
+            {/* Section A */}
             <motion.div 
-              className="absolute bottom-12"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: opacityA.get() }}
+              style={{ opacity: opacityA, y: yA }}
+              className="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
             >
-              <ChevronDown className="w-8 h-8 opacity-70" />
+              <h1 className="text-5xl md:text-7xl font-bold tracking-wide mb-6 font-syne text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+                {t('hero.title1')}
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-100 max-w-2xl font-space tracking-wide drop-shadow-lg">
+                {t('hero.subtitle1')}
+              </p>
+              
+              <motion.div 
+                className="absolute bottom-12"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              >
+                <ChevronDown className="w-8 h-8 opacity-70" />
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          {/* Section B */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            style={{ opacity: opacityB, x: xB }}
-            className="absolute inset-0 flex flex-col items-start justify-center max-w-6xl mx-auto w-full text-white px-8 md:px-16"
-          >
-            <h2 className="text-4xl md:text-6xl font-medium leading-relaxed max-w-4xl font-space text-slate-100 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
-              {t('hero.title2_pt1')}<span className="font-syne font-bold text-blue-400">{t('hero.title2_pt2')}</span>{t('hero.title2_pt3')}
-            </h2>
-          </motion.div>
-
-
-
-          {/* Section D */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            style={{ opacity: opacityD, y: yD }}
-            className="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
-          >
-            <h2 className="text-5xl md:text-7xl font-bold tracking-wide mb-8 font-syne text-white/95 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
-              {t('hero.title4')}
-            </h2>
-            <button 
-              className="pointer-events-auto bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-8 py-4 rounded-full shadow-[0_0_40px_rgba(37,99,235,0.4)] transition-all transform hover:scale-105 active:scale-95"
-              onClick={() => {
-                document.getElementById('report-section')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+            {/* Section B */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              style={{ opacity: opacityB, x: xB }}
+              className="absolute inset-0 flex flex-col items-start justify-center max-w-6xl mx-auto w-full text-white px-8 md:px-16"
             >
-              {t('hero.cta')}
-            </button>
-          </motion.div>
+              <h2 className="text-4xl md:text-6xl font-medium leading-relaxed max-w-4xl font-space text-slate-100 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+                {t('hero.title2_pt1')}<span className="font-syne font-bold text-blue-400">{t('hero.title2_pt2')}</span>{t('hero.title2_pt3')}
+              </h2>
+            </motion.div>
 
-        </div>
+            {/* Section C */}
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              style={{ opacity: opacityC, x: xC }}
+              className="absolute inset-0 flex flex-col items-end justify-center max-w-6xl mx-auto w-full text-white px-8 md:px-16 text-right"
+            >
+              <h2 className="text-4xl md:text-6xl font-bold leading-snug max-w-4xl font-syne text-white/90 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+                {t('hero.title3_pt1')}<span className="font-space font-medium text-slate-300">{t('hero.title3_pt2')}</span>{t('hero.title3_pt3')}<br/>
+                <span className="text-blue-400">{t('hero.title3_pt4')}</span><br/>
+                {t('hero.title3_pt5')}
+              </h2>
+            </motion.div>
+
+            {/* Section D */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              style={{ opacity: opacityD, y: yD }}
+              className="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
+            >
+              <h2 className="text-5xl md:text-7xl font-bold tracking-wide mb-8 font-syne text-white/95 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+                {t('hero.title4')}
+              </h2>
+              <button 
+                className="pointer-events-auto bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-8 py-4 rounded-full shadow-[0_0_40px_rgba(37,99,235,0.4)] transition-all transform hover:scale-105 active:scale-95"
+                onClick={() => {
+                  document.getElementById('report-section')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                {t('hero.cta')}
+              </button>
+            </motion.div>
+
+          </div>
+        )}
       </div>
     </section>
   );
