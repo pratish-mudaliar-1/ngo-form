@@ -78,7 +78,6 @@ export function ScrollyCanvas() {
           
           {/* Section A */}
           <motion.div 
-            initial={{ opacity: 1, y: 0 }}
             style={{ opacity: opacityA, y: yA }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
           >
