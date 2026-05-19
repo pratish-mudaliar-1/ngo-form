@@ -43,9 +43,7 @@ export function ScrollyCanvas() {
   const opacityB = useTransform(scrollYProgress, [0.15, 0.2, 0.35, 0.4], [0, 1, 1, 0]);
   const xB = useTransform(scrollYProgress, [0.15, 0.4], [50, -50]);
 
-  // Section C (40% - 70%)
-  const opacityC = useTransform(scrollYProgress, [0.4, 0.45, 0.65, 0.7], [0, 1, 1, 0]);
-  const xC = useTransform(scrollYProgress, [0.4, 0.7], [-50, 50]);
+
 
   // Section D (70% - 100%)
   const opacityD = useTransform(scrollYProgress, [0.7, 0.75, 1, 1], [0, 1, 1, 1]);
@@ -108,18 +106,7 @@ export function ScrollyCanvas() {
             </h2>
           </motion.div>
 
-          {/* Section C */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            style={{ opacity: opacityC, x: xC }}
-            className="absolute inset-0 flex flex-col items-end justify-center max-w-6xl mx-auto w-full text-white px-8 md:px-16 text-right"
-          >
-            <h2 className="text-4xl md:text-6xl font-bold leading-snug max-w-4xl font-syne text-white/90 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
-              {t('hero.title3_pt1')}<span className="font-space font-medium text-slate-300">{t('hero.title3_pt2')}</span>{t('hero.title3_pt3')}<br/>
-              <span className="text-blue-400">{t('hero.title3_pt4')}</span><br/>
-              {t('hero.title3_pt5')}
-            </h2>
-          </motion.div>
+
 
           {/* Section D */}
           <motion.div 
