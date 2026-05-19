@@ -78,6 +78,7 @@ export function ScrollyCanvas() {
           
           {/* Section A */}
           <motion.div 
+            initial={{ opacity: 1, y: 0 }}
             style={{ opacity: opacityA, y: yA }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
           >
@@ -99,6 +100,7 @@ export function ScrollyCanvas() {
 
           {/* Section B */}
           <motion.div 
+            initial={{ opacity: 0, x: 50 }}
             style={{ opacity: opacityB, x: xB }}
             className="absolute inset-0 flex flex-col items-start justify-center max-w-6xl mx-auto w-full text-white px-8 md:px-16"
           >
@@ -109,6 +111,7 @@ export function ScrollyCanvas() {
 
           {/* Section C */}
           <motion.div 
+            initial={{ opacity: 0, x: -50 }}
             style={{ opacity: opacityC, x: xC }}
             className="absolute inset-0 flex flex-col items-end justify-center max-w-6xl mx-auto w-full text-white px-8 md:px-16 text-right"
           >
@@ -121,6 +124,7 @@ export function ScrollyCanvas() {
 
           {/* Section D */}
           <motion.div 
+            initial={{ opacity: 0, y: 50 }}
             style={{ opacity: opacityD, y: yD }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
           >
