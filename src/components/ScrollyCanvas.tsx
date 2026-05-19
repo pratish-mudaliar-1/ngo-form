@@ -79,10 +79,10 @@ export function ScrollyCanvas() {
             style={{ opacity: opacityA, y: yA }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
           >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-wide mb-6 font-syne text-white/95 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-wide mb-6 font-syne text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
               {t('hero.title1')}
             </h1>
-            <p className="text-xl md:text-2xl text-slate-200/95 max-w-2xl font-space tracking-wide drop-shadow-md">
+            <p className="text-xl md:text-2xl text-slate-100 max-w-2xl font-space tracking-wide drop-shadow-lg">
               {t('hero.subtitle1')}
             </p>
             
