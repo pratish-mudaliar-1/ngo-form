@@ -7,7 +7,6 @@ import hiCommon from './locales/hi/common.json';
 import mrCommon from './locales/mr/common.json';
 
 i18n
-  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
@@ -15,14 +14,11 @@ i18n
       hi: { common: hiCommon },
       mr: { common: mrCommon }
     },
+    lng: 'en',
     fallbackLng: 'en',
     defaultNS: 'common',
     interpolation: {
       escapeValue: false,
-    },
-    detection: {
-      order: ['localStorage', 'cookie', 'navigator'],
-      caches: ['localStorage', 'cookie'],
     }
   });
 

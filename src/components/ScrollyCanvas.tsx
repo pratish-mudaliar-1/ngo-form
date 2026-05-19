@@ -39,17 +39,17 @@ export function ScrollyCanvas() {
   const opacityA = useTransform(scrollYProgress, [0, 0.1, 0.15, 0.2], [1, 1, 0, 0]);
   const yA = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
 
-  // Section B (20% - 45%)
-  const opacityB = useTransform(scrollYProgress, [0.15, 0.2, 0.35, 0.45], [0, 1, 1, 0]);
-  const xB = useTransform(scrollYProgress, [0.15, 0.45], [50, -50]);
+  // Section B (20% - 40%)
+  const opacityB = useTransform(scrollYProgress, [0.15, 0.2, 0.35, 0.4], [0, 1, 1, 0]);
+  const xB = useTransform(scrollYProgress, [0.15, 0.4], [50, -50]);
 
-  // Section C (45% - 70%)
-  const opacityC = useTransform(scrollYProgress, [0.4, 0.5, 0.6, 0.7], [0, 1, 1, 0]);
+  // Section C (40% - 70%)
+  const opacityC = useTransform(scrollYProgress, [0.4, 0.45, 0.65, 0.7], [0, 1, 1, 0]);
   const xC = useTransform(scrollYProgress, [0.4, 0.7], [-50, 50]);
 
   // Section D (70% - 100%)
-  const opacityD = useTransform(scrollYProgress, [0.65, 0.75, 1, 1], [0, 1, 1, 1]);
-  const yD = useTransform(scrollYProgress, [0.65, 0.8], [50, 0]);
+  const opacityD = useTransform(scrollYProgress, [0.7, 0.75, 1, 1], [0, 1, 1, 1]);
+  const yD = useTransform(scrollYProgress, [0.7, 0.8], [50, 0]);
 
   return (
     <section ref={containerRef} className="relative h-[500vh] w-full bg-[#0f172a]">

@@ -16,7 +16,10 @@ export function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     function handleClickOutside(event: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         setIsOpen(false);
@@ -26,7 +29,9 @@ export function LanguageSwitcher() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const currentLang = languages.find((l) => l.code === i18n.language?.split('-')[0]) || languages[0];
+  const currentLang = mounted 
+    ? (languages.find((l) => l.code === i18n.language?.split('-')[0]) || languages[0])
+    : languages[0];
 
   const handleLanguageChange = (code: string) => {
     i18n.changeLanguage(code);
