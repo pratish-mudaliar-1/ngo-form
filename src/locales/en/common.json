@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "loading": "Loading Experience",
+    "title1": "Your City Deserves Better",
+    "subtitle1": "Small civic issues become big problems when nobody reports them.",
+    "title2_pt1": "Report potholes, garbage overflow, broken streetlights, and damaged roads ",
+    "title2_pt2": "instantly",
+    "title2_pt3": ".",
+    "title3_pt1": "Built for ",
+    "title3_pt2": "citizens",
+    "title3_pt3": ".",
+    "title3_pt4": "Designed for communities.",
+    "title3_pt5": "Accessible for everyone.",
+    "title4": "Take Action For Your Neighborhood",
+    "cta": "Report an Issue"
+  },
+  "trust": {
+    "title": "Community Powered Impact",
+    "subtitle": "Every day, citizens like you are making a difference by identifying local problems and holding the city accountable.",
+    "issuesReported": "Issues Reported",
+    "communitiesConnected": "Communities Connected",
+    "issuesResolved": "Issues Resolved"
+  },
+  "reports": {
+    "title": "Recent Community Reports",
+    "subtitle": "See what your neighbors are reporting to improve the city."
+  },
+  "form": {
+    "initMap": "Initializing High-Fidelity Map Engine...",
+    "noMatch": "No matching areas found.",
+    "suggested": "Suggested Location",
+    "popular": "Popular Areas",
+    "title": "Report a Civic Issue",
+    "successTitle": "Report Saved Successfully",
+    "refId": "Reference Ticket ID",
+    "submitAnother": "Submit Another Report",
+    "selectIssue": "Select Issue Type",
+    "pothole": "Pothole",
+    "garbage": "Garbage Collection",
+    "streetlight": "Broken Streetlight",
+    "water": "Water Logging",
+    "other": "Other",
+    "describe": "Describe the issue...",
+    "photoTitle": "Photo Evidence (Optional)",
+    "photoHelp": "Tap to upload a photo",
+    "photoChange": "Tap to change photo",
+    "submit": "Submit Report",
+    "submitting": "Submitting...",
+    "locationInput": "Search or describe the location (e.g., Near Andheri Station)"
+  },
+  "map": {
+    "enableGps": "Enable Live Map GPS",
+    "gpsDesc": "Allow access to your device's location to accurately pin the issue on the map. This helps authorities resolve it faster.",
+    "grantAccess": "Grant Location Access",
+    "skip": "Skip for now, I'll search manually",
+    "locating": "Locating your position...",
+    "dragPin": "Drag the map to pinpoint the exact location.",
+    "confirmLocation": "Confirm Map Location",
+    "locatingText": "Locating..."
+  },
+  "footer": {
+    "title": "CivicReport Mumbai",
+    "desc": "Empowering citizens to report local issues, track progress, and build better neighborhoods together.",
+    "links": "Links",
+    "about": "About the NGO",
+    "howItWorks": "How it Works",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "connect": "Connect",
+    "rights": "CivicReport Mumbai. All rights reserved.",
+    "builtWith": "Built with",
+    "forCommunity": "for the community"
+  }
+}
