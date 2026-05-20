@@ -46,7 +46,13 @@
     "photoChange": "Tap to change photo",
     "submit": "Submit Report",
     "submitting": "Submitting...",
-    "locationInput": "Search or describe the location (e.g., Near Andheri Station)"
+    "locationInput": "Search or describe the location (e.g., Near Andheri Station)",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "Enter 10-digit mobile number",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email (optional)"
   },
   "map": {
     "enableGps": "Enable Live Map GPS",

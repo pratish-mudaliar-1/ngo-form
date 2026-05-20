@@ -44,6 +44,9 @@ interface GroupedAreas {
 export function ComplaintForm() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
     issueType: "",
     description: "",
     location: "",
@@ -199,7 +202,7 @@ export function ComplaintForm() {
   };
 
   const resetForm = () => {
-    setFormData({ issueType: "", description: "", location: "", photo: null });
+    setFormData({ name: "", phone: "", email: "", issueType: "", description: "", location: "", photo: null });
     setSubmittedId(null);
   };
 
@@ -354,8 +357,75 @@ export function ComplaintForm() {
                 className="space-y-10"
               >
                 
-                {/* Issue Type */}
+                {/* User Info Section */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Name */}
+                  <div className="relative group">
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      placeholder=" "
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="block w-full bg-transparent border-b-2 border-slate-300 text-slate-800 py-3 focus:outline-none focus:border-blue-600 transition-colors peer text-lg font-medium placeholder-transparent"
+                    />
+                    <label 
+                      htmlFor="name" 
+                      className="absolute left-0 top-3 text-slate-500 text-lg transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-blue-600 peer-focus:uppercase peer-focus:font-semibold peer-focus:tracking-widest peer-valid:-top-4 peer-valid:text-xs peer-valid:uppercase peer-valid:font-semibold peer-valid:tracking-widest"
+                    >
+                      {t('form.nameLabel')} <span className="text-red-500">*</span>
+                    </label>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="relative group">
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      pattern="[0-9]{10}"
+                      placeholder=" "
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="block w-full bg-transparent border-b-2 border-slate-300 text-slate-800 py-3 focus:outline-none focus:border-blue-600 transition-colors peer text-lg font-medium placeholder-transparent"
+                    />
+                    <label 
+                      htmlFor="phone" 
+                      className="absolute left-0 top-3 text-slate-500 text-lg transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-blue-600 peer-focus:uppercase peer-focus:font-semibold peer-focus:tracking-widest peer-valid:-top-4 peer-valid:text-xs peer-valid:uppercase peer-valid:font-semibold peer-valid:tracking-widest"
+                    >
+                      {t('form.phoneLabel')} <span className="text-red-500">*</span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* Email (Optional) */}
                 <div className="relative group">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder=" "
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="block w-full bg-transparent border-b-2 border-slate-300 text-slate-800 py-3 focus:outline-none focus:border-blue-600 transition-colors peer text-lg font-medium placeholder-transparent"
+                  />
+                  <label 
+                    htmlFor="email" 
+                    className={`absolute left-0 transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-blue-600 peer-focus:uppercase peer-focus:font-semibold peer-focus:tracking-widest ${
+                      formData.email 
+                        ? "-top-4 text-xs uppercase font-semibold tracking-widest" 
+                        : "top-3 text-lg"
+                    } text-slate-500`}
+                  >
+                    {t('form.emailLabel')} <span className="text-slate-400 text-sm normal-case font-normal ml-1">(Optional)</span>
+                  </label>
+                </div>
+
+                {/* Issue Type */}
+                <div className="relative group pt-2">
                   <select
                     id="issueType"
                     name="issueType"
